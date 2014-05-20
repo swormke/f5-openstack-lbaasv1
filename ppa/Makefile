@@ -11,7 +11,7 @@ PROJECT_DIR := $(shell dirname `pwd`)
 VERSION := $(shell cat $(PROJECT_DIR)/VERSION|tr -d '\n'; echo -n '.'; cat $(PROJECT_DIR)/OS_RELEASE|tr -d '\n'; echo -n '-1')
 
 PPA_DIST=precise
-GPG_KEY=E1E513EF
+GPG_KEY=0B8F094B
 
 default: deb_source
 
@@ -27,7 +27,7 @@ build/f5-lbaas-driver_$(VERSION)_source.deb:
         cd deb_dist/f5-lbaas-driver-$(VERSION); \
         dpkg-buildpackage -rfakeroot -S -k$(GPG_KEY); \
         cd $(PROJECT_DIR)/driver/deb_dist; \
-        dput ppa:f5openstackcommunity/neutron f5-lbaas-driver_$(VERSION)-1_source.changes; \
+        dput ppa:f5openstackcommunity/havana f5-lbaas-driver_$(VERSION)-1_source.changes; \
         )
 
 build/f5-bigip-lbaas-agent_$(VERSION)_source.deb:
@@ -38,7 +38,7 @@ build/f5-bigip-lbaas-agent_$(VERSION)_source.deb:
         cd deb_dist/f5-bigip-lbaas-agent-$(VERSION); \
         dpkg-buildpackage -rfakeroot -S -k$(GPG_KEY); \
         cd $(PROJECT_DIR)/agent/deb_dist; \
-        dput ppa:f5openstackcommunity/neutron f5-bigip-lbaas-agent_$(VERSION)-1_source.changes; \
+        dput ppa:f5openstackcommunity/havana f5-bigip-lbaas-agent_$(VERSION)-1_source.changes; \
         )
 
 clean: 
