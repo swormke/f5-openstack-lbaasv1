@@ -7,8 +7,7 @@
 # 
 
 PROJECT_DIR := $(shell dirname `pwd`)
-
-VERSION := $(shell cat $(PROJECT_DIR)/VERSION|tr -d '\n'; echo -n '.'; cat $(PROJECT_DIR)/OS_RELEASE|tr -d '\n'; echo -n '-1')
+VERSION := $(shell cat $(PROJECT_DIR)/VERSION|tr -d '\n';)
 
 PPA_DIST=precise
 GPG_KEY=0B8F094B
